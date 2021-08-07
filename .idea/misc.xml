@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/saint/AndroidStudioProjects/WordOrder/app/src/main/res/drawable/bg_word.xml" value="0.21203703703703702" />
+        <entry key="..\:/Users/saint/AndroidStudioProjects/WordOrder/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2212962962962963" />
+        <entry key="..\:/Users/saint/AndroidStudioProjects/WordOrder/app/src/main/res/layout/activity_main.xml" value="0.2857142857142857" />
+        <entry key="..\:/Users/saint/AndroidStudioProjects/WordOrder/app/src/main/res/layout/item_word.xml" value="0.20643363728470113" />
+        <entry key="..\:/Users/saint/AndroidStudioProjects/WordOrder/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.4064814814814815" />
+        <entry key="..\:/Users/saint/AndroidStudioProjects/WordOrder/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.4064814814814815" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
