@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/saint/AndroidStudioProjects/WordOrder/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2609375" />
+        <entry key="..\:/Users/saint/AndroidStudioProjects/WordOrder/app/src/main/res/drawable-w480dp/hello_background.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/saint/AndroidStudioProjects/WordOrder/app/src/main/res/drawable/bg_word.xml" value="0.21203703703703702" />
         <entry key="..\:/Users/saint/AndroidStudioProjects/WordOrder/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2212962962962963" />
         <entry key="..\:/Users/saint/AndroidStudioProjects/WordOrder/app/src/main/res/layout/activity_main.xml" value="0.2857142857142857" />
