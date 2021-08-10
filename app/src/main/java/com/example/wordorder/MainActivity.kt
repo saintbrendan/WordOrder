@@ -21,12 +21,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val sentenceAdapter = SentenceAdapter()
         val wordsAdapter = WordsAdapter {
             selectedWord = it
         }.apply {
             submitList(words)
         }
+        val sentenceAdapter = SentenceAdapter(wordsAdapter)
 
         binding.rvSentence.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvSentence.adapter = sentenceAdapter

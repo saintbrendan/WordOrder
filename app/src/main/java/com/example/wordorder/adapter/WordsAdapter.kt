@@ -18,6 +18,8 @@ import com.example.wordorder.callback.WordsDiffCallback
  * @param onDragStarted will provide the current draggable view value. String in this case
  * */
 class WordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<String, WordsAdapter.WordsViewHolder>(WordsDiffCallback()) {
+    private var sentenceAdapter: SentenceAdapter = SentenceAdapter(this)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_word, parent, false)
 
@@ -32,6 +34,10 @@ class WordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<St
         val list = ArrayList(currentList)
         list.remove(selectedWord)
         submitList(list)
+    }
+
+    fun setSentenceAdapter(sentenceAdapter: SentenceAdapter) {
+        sentenceAdapter.also { this.sentenceAdapter = it }
     }
 
     inner class WordsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
