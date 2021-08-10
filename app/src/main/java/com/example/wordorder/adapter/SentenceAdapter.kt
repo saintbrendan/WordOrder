@@ -30,6 +30,12 @@ class SentenceAdapter(wordsAdapter: WordsAdapter) : ListAdapter<String, Sentence
         holder.bind(getItem(position))
     }
 
+    fun removeItem(selectedWord: String) {
+        val list = ArrayList(currentList)
+        list.remove(selectedWord)
+        submitList(list)
+    }
+
     fun addItem(selectedWord: String) {
         val list = ArrayList(currentList)
         list.add(selectedWord)
@@ -37,8 +43,15 @@ class SentenceAdapter(wordsAdapter: WordsAdapter) : ListAdapter<String, Sentence
     }
 
     inner class WordsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(word: String) {
-            itemView.findViewById<TextView>(R.id.tvWord).text = word
+        fun bind(word: String) = itemView.run {
+            findViewById<TextView>(R.id.tvWord).text = word
+
+            setOnClickListener {view->
+                print("what?")
+                removeItem(word)
+                wa.addItem(word)
+                true
+            }
         }
     }
 }

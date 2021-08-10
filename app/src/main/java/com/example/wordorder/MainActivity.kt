@@ -11,7 +11,7 @@ import com.example.wordorder.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     // values of the draggable views (usually this should come from a data source)
-    private val words = mutableListOf("you", "to run", "like", "Do", "?")
+    private val words = mutableListOf("Did", "you", "run", "the", "run", "?")
     // last selected word
     private var selectedWord = ""
 

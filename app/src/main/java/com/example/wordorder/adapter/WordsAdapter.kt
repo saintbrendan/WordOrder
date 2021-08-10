@@ -36,6 +36,12 @@ class WordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<St
         submitList(list)
     }
 
+    fun addItem(selectedWord: String) {
+        val list = ArrayList(currentList)
+        list.add(selectedWord)
+        submitList(list)
+    }
+
     fun setSentenceAdapter(sentenceAdapter: SentenceAdapter) {
         sentenceAdapter.also { this.sentenceAdapter = it }
     }
@@ -49,23 +55,8 @@ class WordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<St
                 removeItem(word)
                 sentenceAdapter.addItem(word)
 
-
                 true
             }
-//            setOnLongClickListener { view ->
-//                // when user is long clicking on a view, drag process will start
-//                val data = ClipData.newPlainText("", word)
-//                val shadowBuilder = View.DragShadowBuilder(view)
-//                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-//                    view.startDragAndDrop(data, shadowBuilder, view, 0)
-//                } else {
-//                    view.startDrag(data, shadowBuilder, view, 0)
-//                }
-//                onDragStarted(word)
-//                true
-//            }
-
-            setOnDragListener(DragListener())
         }
     }
 }
