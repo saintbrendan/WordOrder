@@ -31,12 +31,12 @@ class MainActivity : AppCompatActivity() {
         binding.rvSentence.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvSentence.adapter = sentenceAdapter
 
-        binding.rvSentence.setOnDragListener(
-            DropListener {
-                wordsAdapter.removeItem(selectedWord)
-                sentenceAdapter.addItem(selectedWord)
-            }
-        )
+//        binding.rvSentence.setOnDragListener(
+//            DropListener {
+//                wordsAdapter.removeItem(selectedWord)
+//                sentenceAdapter.addItem(selectedWord)
+//            }
+//        )
 
         binding.rvWords.layoutManager = FlexboxLayoutManager(this, FlexDirection.ROW, FlexWrap.WRAP).apply {
             justifyContent = JustifyContent.SPACE_EVENLY

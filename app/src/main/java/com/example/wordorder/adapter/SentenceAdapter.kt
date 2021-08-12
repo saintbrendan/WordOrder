@@ -1,5 +1,6 @@
 package com.example.wordorder.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,10 +28,12 @@ class SentenceAdapter(wordsAdapter: WordsAdapter) : ListAdapter<String, Sentence
 
 
     override fun onBindViewHolder(holder: WordsViewHolder, position: Int) {
+        Log.d("position", position.toString())
         holder.bind(getItem(position), position)
     }
 
     fun removeItem(position: Int) : String {
+        Log.d("position", position.toString())
         val list = ArrayList(currentList)
         val item = list.removeAt(position)
         submitList(list)
@@ -44,9 +47,9 @@ class SentenceAdapter(wordsAdapter: WordsAdapter) : ListAdapter<String, Sentence
     }
 
     inner class WordsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+//        val position = itemView.
         fun bind(word: String, position: Int) = itemView.run {
             findViewById<TextView>(R.id.tvWord).text = word
-
             setOnClickListener {view->
                 print("what?")
                 val item = removeItem(position)
