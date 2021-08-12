@@ -25,15 +25,11 @@ class SentenceAdapter(wordsAdapter: WordsAdapter) : ListAdapter<String, Sentence
         wa.setSentenceAdapter(this)
     }
 
-
-
     override fun onBindViewHolder(holder: WordsViewHolder, position: Int) {
-        Log.d("position", position.toString())
         holder.bind(getItem(position))
     }
 
     fun removeItem(position: Int) : String {
-        Log.d("position", position.toString())
         val list = ArrayList(currentList)
         val item = list.removeAt(position)
         submitList(list)
@@ -52,10 +48,7 @@ class SentenceAdapter(wordsAdapter: WordsAdapter) : ListAdapter<String, Sentence
         fun bind(word: String) = itemView.run {
             findViewById<TextView>(R.id.tvWord).text = word
             setOnClickListener {view->
-
-                print("what?")
-                val position = adapterPosition
-                val item = removeItem(position)
+                val item = removeItem(adapterPosition)
                 wa.addItem(item)
                 true
             }

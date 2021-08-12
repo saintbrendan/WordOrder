@@ -11,7 +11,7 @@ import com.example.wordorder.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     // values of the draggable views (usually this should come from a data source)
-    private val words = mutableListOf("Did", "you", "run", "the", "run", "?")
+    private val words = mutableListOf("Did", "you", "run", "the", "run", "right", "now", "?")
     // last selected word
     private var selectedWord = ""
 
@@ -30,13 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.rvSentence.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvSentence.adapter = sentenceAdapter
-
-//        binding.rvSentence.setOnDragListener(
-//            DropListener {
-//                wordsAdapter.removeItem(selectedWord)
-//                sentenceAdapter.addItem(selectedWord)
-//            }
-//        )
 
         binding.rvWords.layoutManager = FlexboxLayoutManager(this, FlexDirection.ROW, FlexWrap.WRAP).apply {
             justifyContent = JustifyContent.SPACE_EVENLY

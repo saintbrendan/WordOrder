@@ -30,9 +30,9 @@ class WordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<St
         holder.bind(getItem(position))
     }
 
-    fun removeItem(selectedWord: String) {
+    fun removeItem(position: Int) {
         val list = ArrayList(currentList)
-        list.remove(selectedWord)
+        list.removeAt(position)
         submitList(list)
     }
 
@@ -51,10 +51,8 @@ class WordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<St
             findViewById<TextView>(R.id.tvWord).text = word
 
             setOnClickListener {view->
-                print("what?")
-                removeItem(word)
+                removeItem(adapterPosition)
                 sentenceAdapter.addItem(word)
-
                 true
             }
         }
