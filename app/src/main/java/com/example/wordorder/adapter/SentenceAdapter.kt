@@ -29,7 +29,7 @@ class SentenceAdapter(wordsAdapter: WordsAdapter) : ListAdapter<String, Sentence
 
     override fun onBindViewHolder(holder: WordsViewHolder, position: Int) {
         Log.d("position", position.toString())
-        holder.bind(getItem(position), position)
+        holder.bind(getItem(position))
     }
 
     fun removeItem(position: Int) : String {
@@ -47,11 +47,14 @@ class SentenceAdapter(wordsAdapter: WordsAdapter) : ListAdapter<String, Sentence
     }
 
     inner class WordsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        val position = itemView.
-        fun bind(word: String, position: Int) = itemView.run {
+
+
+        fun bind(word: String) = itemView.run {
             findViewById<TextView>(R.id.tvWord).text = word
             setOnClickListener {view->
+
                 print("what?")
+                val position = adapterPosition
                 val item = removeItem(position)
                 wa.addItem(item)
                 true
