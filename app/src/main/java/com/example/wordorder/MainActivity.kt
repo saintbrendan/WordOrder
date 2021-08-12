@@ -28,11 +28,14 @@ class MainActivity : AppCompatActivity() {
         }
         val sentenceAdapter = SentenceAdapter(wordsAdapter)
 
-        binding.rvSentence.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvSentence.layoutManager = FlexboxLayoutManager(this, FlexDirection.ROW, FlexWrap.WRAP).apply {
+            justifyContent = JustifyContent.FLEX_START
+            alignItems = AlignItems.CENTER
+        }
         binding.rvSentence.adapter = sentenceAdapter
 
         binding.rvWords.layoutManager = FlexboxLayoutManager(this, FlexDirection.ROW, FlexWrap.WRAP).apply {
-            justifyContent = JustifyContent.SPACE_EVENLY
+            justifyContent = JustifyContent.FLEX_START
             alignItems = AlignItems.CENTER
         }
 
