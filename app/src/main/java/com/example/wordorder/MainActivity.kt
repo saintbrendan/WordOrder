@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        var currentSentence = 0
+        var iSentence = 0
 
         var sentences = mutableListOf<MutableList<String>>()
         for (sentence in sentenceList) {
@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
 
         val wordsAdapter = WordsAdapter {
         }.apply {
-            submitList(sentences[currentSentence])
+            var shuffledSentence = sentences[iSentence].toMutableList()
+            shuffledSentence.shuffle()
+            submitList(shuffledSentence)
         }
         val sentenceAdapter = SentenceAdapter(wordsAdapter)
 
@@ -54,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         val buttonID = R.id.button2
         val button = findViewById<Button>(buttonID)
         button.setOnClickListener {
-            if (sentenceAdapter.currentList == sentences[currentSentence]) {
+            if (sentenceAdapter.currentList == sentences[iSentence]) {
                 if (button.text == "Confirm") {
                     button.setBackgroundColor(Color.GREEN)
                     button.text = "Continue"
@@ -63,8 +65,10 @@ class MainActivity : AppCompatActivity() {
                     button.setBackgroundColor(Color.rgb(98, 0, 238))
                     button.setTextColor(Color.WHITE)
                     button.text = "Confirm"
-                    currentSentence = (currentSentence + 1) % 4
-                    wordsAdapter.submitList(sentences[currentSentence])
+                    iSentence = (iSentence + 1) % 4
+                    var shuffledSentence = sentences[iSentence].toMutableList()
+                    shuffledSentence.shuffle()
+                    wordsAdapter.submitList(shuffledSentence)
                     sentenceAdapter.clear()
                 }
 

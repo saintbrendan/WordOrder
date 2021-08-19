@@ -51,10 +51,9 @@ class SentenceAdapter(wordsAdapter: WordsAdapter) : ListAdapter<String, Sentence
 
         fun bind(word: String) = itemView.run {
             findViewById<TextView>(R.id.tvWord).text = word
-            setOnClickListener {view->
+            setOnClickListener {
                 val item = removeItem(adapterPosition)
                 wa.addItem(item)
-                true
             }
         }
     }
