@@ -4,19 +4,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wordorder.adapter.WordsAdapter
-import com.example.wordorder.callback.DropListener
-import com.google.android.flexbox.*
 import com.example.wordorder.adapter.SentenceAdapter
+import com.example.wordorder.adapter.WordsAdapter
 import com.example.wordorder.databinding.ActivityMainBinding
+import com.google.android.flexbox.*
 
 class MainActivity : AppCompatActivity() {
-    // values of the draggable views (usually this should come from a data source)
-    ////private val words = mutableListOf("Did", "you", "run", "the", "run", "right", "now", "?")
-    // last selected word
-    private var selectedWord = ""
-
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         val words = mutableListOf<String>(*wordArray4)
 
         val wordsAdapter = WordsAdapter {
-            selectedWord = it
         }.apply {
             submitList(words)
         }

@@ -9,15 +9,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wordorder.callback.DragListener
 import com.example.wordorder.callback.WordsDiffCallback
+
+//import com.example.wordorder.callback.WordsDiffCallback
 
 /**
  * A @androidx.recyclerview.widget.RecyclerView adapter to show draggable items
  *
  * @param onDragStarted will provide the current draggable view value. String in this case
  * */
-class WordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<String, WordsAdapter.WordsViewHolder>(WordsDiffCallback()) {
+class WordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<String, WordsAdapter.WordsViewHolder>(
+    WordsDiffCallback()
+) {
     private var sentenceAdapter: SentenceAdapter = SentenceAdapter(this)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordsViewHolder {
