@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         val buttonID = R.id.button2
         val button = findViewById<Button>(buttonID)
-        button.setOnClickListener { view ->
+        button.setOnClickListener {
             if (sentenceAdapter.currentList == words) {
                 button.setBackgroundColor(Color.GREEN)
             } else {
