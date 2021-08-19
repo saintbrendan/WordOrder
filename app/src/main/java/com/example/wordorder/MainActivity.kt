@@ -22,15 +22,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        var words = mutableListOf<String>()
+        var currentSentence = 0
+
+        var sentences = mutableListOf<MutableList<String>>()
         for (sentence in sentenceList) {
-            val wordArray4 = resources.getStringArray(R.array.sentence4)
-            words = mutableListOf<String>(*wordArray4)
+            val wordArray4 = resources.getStringArray(sentence)
+            sentences.add(mutableListOf<String>(*wordArray4))
         }
 
         val wordsAdapter = WordsAdapter {
         }.apply {
-            submitList(words)
+            submitList(sentences[currentSentence])
         }
         val sentenceAdapter = SentenceAdapter(wordsAdapter)
 
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         val buttonID = R.id.button2
         val button = findViewById<Button>(buttonID)
         button.setOnClickListener {
-            if (sentenceAdapter.currentList == words) {
+            if (sentenceAdapter.currentList == sentences[currentSentence]) {
                 if (button.text == "Confirm") {
                     button.setBackgroundColor(Color.GREEN)
                     button.text = "Continue"
@@ -61,6 +63,9 @@ class MainActivity : AppCompatActivity() {
                     button.setBackgroundColor(Color.rgb(98, 0, 238))
                     button.setTextColor(Color.WHITE)
                     button.text = "Confirm"
+                    currentSentence = (currentSentence + 1) % 4
+                    wordsAdapter.submitList(sentences[currentSentence])
+                    sentenceAdapter.clear()
                 }
 
             } else {

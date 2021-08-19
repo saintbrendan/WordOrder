@@ -42,6 +42,10 @@ class SentenceAdapter(wordsAdapter: WordsAdapter) : ListAdapter<String, Sentence
         submitList(list)
     }
 
+    fun clear() {
+        submitList(arrayListOf())
+    }
+
     inner class WordsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
